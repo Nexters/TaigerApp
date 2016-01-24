@@ -59,3 +59,5 @@ gradle-app.setting
 
 # Cache of project
 .gradletasknamecache
+
+kakao_strings.xml
