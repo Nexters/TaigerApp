@@ -79,4 +79,5 @@
     </string-array>
 
     <string name="text_send_to_me">Send Message to me</string>
+    <string name="title_activity_sign">SignActivity</string>
 </resources>
