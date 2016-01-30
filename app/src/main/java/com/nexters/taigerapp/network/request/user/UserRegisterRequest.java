@@ -6,7 +6,7 @@ import com.nexters.taigerapp.network.ServerUrl;
 import com.nexters.taigerapp.network.TaigerApi;
 import com.nexters.taigerapp.network.request.RequestInfo;
 
-public class UserRegisterRequest extends TaigerApi implements RequestInfo {
+public class UserRegisterRequest implements RequestInfo {
     private String kakaoId;
     private String name;
     private Integer gender;
@@ -38,6 +38,6 @@ public class UserRegisterRequest extends TaigerApi implements RequestInfo {
 
     @Override
     public void request() {
-        asyncClient.post(getUrl(), getParams(), responseHandler);
+        TaigerApi.asyncClient.post(getUrl(), getParams(), responseHandler);
     }
 }

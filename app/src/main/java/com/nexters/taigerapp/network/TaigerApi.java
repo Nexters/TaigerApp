@@ -5,7 +5,7 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.SyncHttpClient;
 
 public class TaigerApi {
-    protected static AsyncHttpClient asyncClient = new AsyncHttpClient();
-    protected static AsyncHttpClient syncClient = new SyncHttpClient();
-    protected static Gson gson = new Gson();
+    public static AsyncHttpClient asyncClient = new AsyncHttpClient();
+    public static AsyncHttpClient syncClient = new SyncHttpClient();
+    public static Gson gson = new Gson();
 }
