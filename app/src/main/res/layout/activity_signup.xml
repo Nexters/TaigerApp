@@ -14,11 +14,13 @@
         android:padding="5dp">
 
         <TextView
+            android:id="@+id/tx_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="name " />
 
         <EditText
+            android:id="@+id/et_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
@@ -31,11 +33,13 @@
         android:padding="5dp">
 
         <TextView
+            android:id="@+id/tx_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="age " />
 
         <EditText
+            android:id="@+id/et_age"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />

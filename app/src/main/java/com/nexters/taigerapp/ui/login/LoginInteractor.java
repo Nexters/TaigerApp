@@ -7,12 +7,21 @@ import com.kakao.util.helper.log.Logger;
 
 public class LoginInteractor {
     private SessionCallback callback;
+    private OnLoginListener listener;
 
-    public void create(OnLoginListener listener){
+    public LoginInteractor(OnLoginListener listener) {
+        this.listener = listener;
+    }
+
+    public void create(){
         callback = new SessionCallback(listener);
         Session.getCurrentSession().addCallback(callback);
-        if (!Session.getCurrentSession().checkAndImplicitOpen()) {
-           listener.onCreate();
+        if (Session.getCurrentSession().checkAndImplicitOpen()) {
+           if(isLogin()){
+               listener.redirectDepartureActivity();
+           } else {
+               throw new LoginException(LoginException.CONNECT_ERROR);
+           }
         }
     }
 
@@ -20,7 +29,9 @@ public class LoginInteractor {
         Session.getCurrentSession().removeCallback(callback);
     }
 
-    private boolean isLogin(String token){
+    private boolean isLogin(){
+        String token = Session.getCurrentSession().getAccessToken();
+
         // TODO
 
         return false;
@@ -38,9 +49,7 @@ public class LoginInteractor {
 
         @Override
         public void onSessionOpened() {
-            String token = Session.getCurrentSession().getAccessToken();
-
-            if(isLogin(token)) {
+            if(isLogin()) {
                 listener.redirectDepartureActivity();
             } else {
                 listener.redirectSignupActivity();

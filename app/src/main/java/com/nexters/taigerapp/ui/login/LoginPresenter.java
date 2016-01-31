@@ -6,7 +6,16 @@ public class LoginPresenter implements OnLoginListener {
 
     public LoginPresenter(LoginActivity loginActivity){
         this.loginActivity = loginActivity;
-        this.loginInteractor = new LoginInteractor();
+        this.loginInteractor = new LoginInteractor(this);
+    }
+
+    public void onCreate() {
+        loginInteractor.create();
+        loginActivity.create();
+    }
+
+    public void onDestroy() {
+        loginInteractor.destroy();
     }
 
     @Override
@@ -17,17 +26,6 @@ public class LoginPresenter implements OnLoginListener {
     @Override
     public void onPasswordError() {
         loginActivity.setPasswordError();;
-    }
-
-    @Override
-    public void onCreate() {
-        loginInteractor.create(this);
-        loginActivity.create();
-    }
-
-    @Override
-    public void onDestroy() {
-        loginInteractor.destroy();
     }
 
     @Override
