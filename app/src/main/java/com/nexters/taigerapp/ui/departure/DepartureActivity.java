@@ -1,4 +1,4 @@
-package com.nexters.taigerapp.ui.activity;
+package com.nexters.taigerapp.ui.departure;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -9,7 +9,7 @@ import android.view.View;
 
 import com.nexters.taigerapp.R;
 
-public class MapActivity extends AppCompatActivity {
+public class DepartureActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

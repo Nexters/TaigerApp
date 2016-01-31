@@ -2,6 +2,7 @@ package com.nexters.taigerapp.common;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.support.v4.util.LruCache;
 
@@ -10,6 +11,10 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 import com.kakao.auth.KakaoSDK;
 import com.kakao.util.helper.log.Logger;
+
+import java.net.CookieHandler;
+import java.net.CookieManager;
+import java.net.CookiePolicy;
 
 public class GlobalApplication extends Application {
     private static volatile GlobalApplication instance = null;
@@ -27,26 +32,29 @@ public class GlobalApplication extends Application {
 
     /**
      * singleton 애플리케이션 객체를 얻는다.
+     *
      * @return singleton 애플리케이션 객체
      */
     public static GlobalApplication getGlobalApplicationContext() {
-        if(instance == null)
+        if (instance == null)
             throw new IllegalStateException("this application does not inherit com.nexters.taigerapp.GlobalApplication");
         return instance;
     }
 
     /**
      * 이미지 로더, 이미지 캐시, 요청 큐를 초기화한다.
+     * 어플리케이션에서 쿠키매니저를 만들고 쿠키를 등록
      */
     @Override
     public void onCreate() {
         super.onCreate();
         instance = this;
 
+        // 카카오 설정
         KakaoSDK.init(new KakaoSDKAdapter());
 
+        // 이미지?
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
-
         ImageLoader.ImageCache imageCache = new ImageLoader.ImageCache() {
             final LruCache<String, Bitmap> imageCache = new LruCache<String, Bitmap>(3);
 
@@ -60,12 +68,21 @@ public class GlobalApplication extends Application {
                 return imageCache.get(key);
             }
         };
-
         imageLoader = new ImageLoader(requestQueue, imageCache);
+
+        // 쿠키 설정?
+        CookieManager cookieManager = new CookieManager(null, CookiePolicy.ACCEPT_ALL);
+        CookieHandler.setDefault(cookieManager);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
     }
 
     /**
      * 이미지 로더를 반환한다.
+     *
      * @return 이미지 로더
      */
     public ImageLoader getImageLoader() {

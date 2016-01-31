@@ -29,11 +29,16 @@ dependencies {
 
     // api
     compile 'com.mcxiaoke.volley:library:1.0.8'
-    compile 'com.loopj.android:android-async-http:1.4.9'
+//    compile 'com.loopj.android:android-async-http:1.4.9'
     compile 'com.squareup.retrofit2:retrofit:2.0.0-beta3'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta3'
+
+    // lombok
+    compile 'org.projectlombok:lombok:1.16.4'
 
     compile group: 'com.kakao.sdk', name: 'kakaolink', version:'1.1.10'
     compile group: 'com.kakao.sdk', name: 'kakaostory', version:'1.1.10'
     compile group: 'com.kakao.sdk', name: 'kakaotalk', version:'1.1.10'
     compile group: 'com.kakao.sdk', name: 'push', version:'1.1.10'
 }
+

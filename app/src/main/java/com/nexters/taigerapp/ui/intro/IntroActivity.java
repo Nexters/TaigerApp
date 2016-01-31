@@ -1,16 +1,12 @@
-package com.nexters.taigerapp.ui.activity;
+package com.nexters.taigerapp.ui.intro;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.Window;
 
 import com.nexters.taigerapp.R;
+import com.nexters.taigerapp.ui.login.LoginActivity;
 
 public class IntroActivity extends AppCompatActivity {
     private static final long INTRO_LOADING_TIME = 2000L;

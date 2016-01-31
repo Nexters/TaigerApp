@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 
 import com.nexters.taigerapp.common.widget.WaitingDialog;
-import com.nexters.taigerapp.ui.activity.LoginActivity;
+import com.nexters.taigerapp.ui.login.LoginActivity;
 
 public class BaseActivity extends Activity {
     protected static Activity self;

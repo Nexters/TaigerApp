@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-
 import com.nexters.taigerapp.R;
 
 import java.util.List;

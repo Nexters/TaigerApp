@@ -28,7 +28,7 @@ import android.support.v4.app.NotificationCompat;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.nexters.taigerapp.R;
 import com.nexters.taigerapp.common.log.Logger;
-import com.nexters.taigerapp.ui.activity.LoginActivity;
+import com.nexters.taigerapp.ui.login.LoginActivity;
 
 /**
  * {@link com.nexters.taigerapp.push.GcmBroadcastReceiver}로부터 전달 받은 메시지가 담긴 intent를 처리하는 서비스 구현체.

@@ -23,7 +23,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.content.WakefulBroadcastReceiver;
 
-import com.kakao.sdk.sample.common.log.Logger;
+import com.nexters.taigerapp.common.log.Logger;
+
 
 /**
  * com.google.android.c2dm.intent.RECEIVE intent를 처리하는 WakefulBroadcastReceiver 구현체.

@@ -1,4 +1,4 @@
-package com.nexters.taigerapp.auth;
+package com.nexters.taigerapp.persistance;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -8,10 +8,10 @@ import java.util.Set;
 /**
  * Created by BoBinLee on 2016. 1. 13..
  */
-public class AuthManager {
+public class SessionManager {
     public static final String AUTH_TOKEN = "AUTH_TOKEN";
 
-    private static AuthManager authManager;
+    private static SessionManager authManager;
     private SharedPreferences mPref;
     private SharedPreferences.Editor mEditor;
     private Context mContext;
@@ -20,15 +20,15 @@ public class AuthManager {
     private int PRIVATE_MODE = 0;
     private static final String PREF_NAME = "auth_manager";
 
-    public AuthManager(Context context) {
+    public SessionManager(Context context) {
         this.mContext = context;
         mPref = mContext.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
         mEditor = mPref.edit();
     }
 
-    public static AuthManager getInstance(Context context) {
+    public static SessionManager getInstance(Context context) {
         if (authManager == null) {
-            authManager = new AuthManager(context);
+            authManager = new SessionManager(context);
         }
         return authManager;
     }
