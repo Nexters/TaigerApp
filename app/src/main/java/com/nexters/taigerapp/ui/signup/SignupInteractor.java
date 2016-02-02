@@ -2,13 +2,12 @@ package com.nexters.taigerapp.ui.signup;
 
 import com.kakao.auth.Session;
 import com.kakao.usermgmt.response.model.UserProfile;
-import com.nexters.taigerapp.network.request.TagierRestAdapter;
-import com.nexters.taigerapp.network.request.UserRequest;
-import com.nexters.taigerapp.network.request.condition.UserCondition;
+import com.nexters.taigerapp.network.service.UserService;
+import com.nexters.taigerapp.network.service.condition.UserCondition;
 import com.nexters.taigerapp.network.response.model.AuthResult;
 
 public class SignupInteractor {
-    private UserRequest request = TagierRestAdapter.restTemplate.create(UserRequest.class);
+    private UserService request = UserService.Factory.create();
     private OnSignupListener listener;
 
     public SignupInteractor(OnSignupListener listener) {

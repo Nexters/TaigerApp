@@ -1,4 +1,4 @@
-package com.nexters.taigerapp.network.request.condition;
+package com.nexters.taigerapp.network.service.condition;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
