@@ -2,11 +2,12 @@ package com.nexters.taigerapp.common;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 
 import com.nexters.taigerapp.common.widget.WaitingDialog;
 import com.nexters.taigerapp.ui.login.LoginActivity;
 
-public class BaseActivity extends Activity {
+public class BaseActivity extends AppCompatActivity {
     protected static Activity self;
 
     @Override

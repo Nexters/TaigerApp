@@ -7,7 +7,7 @@ import android.widget.Toast;
 import com.kakao.auth.Session;
 import com.nexters.taigerapp.R;
 import com.nexters.taigerapp.common.BaseActivity;
-import com.nexters.taigerapp.ui.departure.DepartureActivity;
+import com.nexters.taigerapp.ui.destination.DestinationActivity;
 import com.nexters.taigerapp.ui.signup.SignupActivity;
 
 public class LoginActivity extends BaseActivity {
@@ -59,7 +59,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     public void redirectDepartureActivity() {
-        final Intent intent = new Intent(this, DepartureActivity.class);
+        final Intent intent = new Intent(this, DestinationActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
         finish();

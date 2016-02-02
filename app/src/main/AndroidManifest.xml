@@ -52,15 +52,18 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.departure.DepartureActivity"
-            android:label="@string/title_activity_map"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ui.destination.DestinationActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".ui.signup.SignupActivity"
             android:label="@string/title_activity_sign"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.destination.DestinationActivity" />
         <activity android:name=".ui.meeting.view.MeetingActivity" />
-        <activity android:name=".ui.meeting.detail.MeetingDetailActivity"></activity>
+        <activity android:name=".ui.meeting.detail.MeetingDetailActivity" />
     </application>
 
 </manifest>
