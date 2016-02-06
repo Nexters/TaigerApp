@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.nexters.taigerapp"
-        minSdkVersion 15
+        minSdkVersion 17
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
@@ -24,6 +24,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:22.2.1'
     compile 'com.android.support:design:22.2.1'
+    compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.google.code.gson:gson:2.5'
     compile 'com.google.guava:guava:19.0'
 
@@ -35,6 +36,9 @@ dependencies {
 
     // lombok
     compile 'org.projectlombok:lombok:1.16.4'
+
+    // image
+    compile 'com.squareup.picasso:picasso:2.5.2'
 
     compile group: 'com.kakao.sdk', name: 'kakaolink', version:'1.1.10'
     compile group: 'com.kakao.sdk', name: 'kakaostory', version:'1.1.10'

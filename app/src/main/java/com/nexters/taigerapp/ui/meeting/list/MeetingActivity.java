@@ -1,4 +1,4 @@
-package com.nexters.taigerapp.ui.meeting.view;
+package com.nexters.taigerapp.ui.meeting.list;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,5 +11,7 @@ public class MeetingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meeting);
+
+        
     }
 }
