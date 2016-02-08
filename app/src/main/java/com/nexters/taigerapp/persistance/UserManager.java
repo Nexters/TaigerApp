@@ -4,12 +4,14 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.google.android.gms.location.places.Place;
+import com.nexters.taigerapp.ui.departure.Departure;
 
 import java.util.Set;
 
 public class UserManager {
     public static final Class AUTH = String.class;
-    public static final Class PLACE = Place.class;
+    public static final Class DESTINATION = Place.class;
+    public static final Class DEPARTURE = Departure.class;
 
     private static UserManager userManager;
     private SharedPreferences mPref;

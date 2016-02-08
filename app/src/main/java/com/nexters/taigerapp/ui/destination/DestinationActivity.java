@@ -3,6 +3,7 @@ package com.nexters.taigerapp.ui.destination;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -28,7 +29,7 @@ import com.nexters.taigerapp.ui.departure.DepartureActivity;
 
 public class DestinationActivity extends BaseActivity implements View.OnClickListener, OnMapReadyCallback {
     private static final int REQUEST_PLACE_PICKER = 1;
-    private static final double DEFAULT_RADIUS = 1000000;
+    private static final double DEFAULT_RADIUS = 100;
 
     private DestinationPresenter presenter;
 
@@ -131,11 +132,13 @@ public class DestinationActivity extends BaseActivity implements View.OnClickLis
                 .build();
 
         googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(position));
-        
-        googleMap.addCircle(new CircleOptions()
+
+        CircleOptions circleOptions = new CircleOptions()
                 .center(latLng)
                 .radius(DEFAULT_RADIUS)
-                .fillColor(getColor(R.color.red)));
+                .fillColor(ContextCompat.getColor(this, R.color.red))
+                .strokeWidth(0);
+        googleMap.addCircle(circleOptions);
     }
 
     public void refreshDestName(String name) {

@@ -8,15 +8,16 @@ import com.nexters.taigerapp.persistance.UserManager;
 
 public class DestinationInteractor {
     private UserManager userManager;
-
+    private Gson gson;
     public DestinationInteractor(Context context) {
         this.userManager = UserManager.getInstance(context);
+        gson = new Gson();
     }
 
     public void saveDestination(Place place) {
-        Gson gson = new Gson();
-        String placeStr = gson.toJson(place);
+        Destination destination = new Destination(place);
+        String destinationStr = gson.toJson(destination);
 
-        userManager.putString(UserManager.PLACE.getName(), placeStr);
+        userManager.putString(UserManager.DESTINATION.getName(), destinationStr);
     }
 }

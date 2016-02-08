@@ -10,14 +10,10 @@
         android:id="@+id/tool_bar"
         layout="@layout/tool_bar"></include>
 
-    <LinearLayout
-        android:id="@+id/ll_departure_content"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_departure_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-
-
-
-    </LinearLayout>
+        android:padding="10dp"
+         />
 </LinearLayout>
