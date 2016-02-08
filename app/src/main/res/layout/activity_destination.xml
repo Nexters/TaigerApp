@@ -6,28 +6,31 @@
     android:orientation="vertical"
     tools:context="com.nexters.taigerapp.ui.destination.DestinationActivity">
 
-    <include
-        android:id="@+id/tool_bar"
-        layout="@layout/tool_bar"></include>
-
     <ViewSwitcher
-        android:id="@+id/ll_destination_content"
+        android:id="@+id/vs_dest_switcher"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" android:src="@drawable/kakao_default_profile_image" />
+            android:layout_height="match_parent"
+            android:src="@color/red" />
 
-        <LinearLayout
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/fg_dest_map"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></LinearLayout>
+            android:layout_height="match_parent"
+            class="com.google.android.gms.maps.SupportMapFragment" />
 
     </ViewSwitcher>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:paddingBottom="10dp">
 
         <ImageView
             android:id="@+id/iv_dest_search"
@@ -39,10 +42,15 @@
             android:id="@+id/tv_dest_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="장소를 입력해주세요"
             android:gravity="center"
-            />
+            android:text="장소를 입력해주세요" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_dest_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="건너 뛰기" />
 
 </LinearLayout>

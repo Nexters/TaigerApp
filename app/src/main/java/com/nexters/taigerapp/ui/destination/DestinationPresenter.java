@@ -14,5 +14,8 @@ public class DestinationPresenter implements OnDestinationListener {
     public void refreshDestination(Place place) {
         destinationInteractor.saveDestination(place);
         destinationActivity.refreshDestName(String.valueOf(place.getName()));
+        destinationActivity.setNextButtonName();
+        destinationActivity.focusDestMap(place);
+        destinationActivity.enableDestMap();
     }
 }
