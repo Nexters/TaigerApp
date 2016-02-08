@@ -3,5 +3,4 @@
     <!--<string name="base_uri">http://map-server.herokuapp.com</string>-->
     <string name="base_uri">http://localhost:8080/user</string>
     <!--<string name="base_uri">http://192.168.219.105:8080/map</string>-->
-
 </resources>

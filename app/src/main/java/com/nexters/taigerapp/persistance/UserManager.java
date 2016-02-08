@@ -3,34 +3,34 @@ package com.nexters.taigerapp.persistance;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.google.android.gms.location.places.Place;
+
 import java.util.Set;
 
-/**
- * Created by BoBinLee on 2016. 1. 13..
- */
-public class SessionManager {
-    public static final String AUTH_TOKEN = "AUTH_TOKEN";
+public class UserManager {
+    public static final Class AUTH = String.class;
+    public static final Class PLACE = Place.class;
 
-    private static SessionManager authManager;
+    private static UserManager userManager;
     private SharedPreferences mPref;
     private SharedPreferences.Editor mEditor;
     private Context mContext;
 
     // Shared pref mode
     private int PRIVATE_MODE = 0;
-    private static final String PREF_NAME = "auth_manager";
+    private static final String PREF_NAME = "user_manager";
 
-    public SessionManager(Context context) {
+    public UserManager(Context context) {
         this.mContext = context;
         mPref = mContext.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
         mEditor = mPref.edit();
     }
 
-    public static SessionManager getInstance(Context context) {
-        if (authManager == null) {
-            authManager = new SessionManager(context);
+    public static UserManager getInstance(Context context) {
+        if (userManager == null) {
+            userManager = new UserManager(context);
         }
-        return authManager;
+        return userManager;
     }
 
     public void putString(String key, String value) {

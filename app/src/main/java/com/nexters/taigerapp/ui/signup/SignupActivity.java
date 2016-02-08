@@ -24,9 +24,10 @@ public class SignupActivity extends BaseActivity implements View.OnClickListener
         setContentView(R.layout.activity_signup);
 
         btnSignup = (Button) findViewById(R.id.btn_sign_up);
+        btnSignup.setOnClickListener(this);
+
         etName = (EditText) findViewById(R.id.et_name);
         etAge = (EditText) findViewById(R.id.et_age);
-        btnSignup.setOnClickListener(this);
     }
 
 
