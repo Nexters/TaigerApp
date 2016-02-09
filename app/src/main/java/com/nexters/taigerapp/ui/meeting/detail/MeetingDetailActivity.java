@@ -1,6 +1,7 @@
 package com.nexters.taigerapp.ui.meeting.detail;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -16,11 +17,14 @@ import com.nexters.taigerapp.common.ToolbarActivity;
 import com.nexters.taigerapp.ui.comment.Comment;
 import com.nexters.taigerapp.ui.comment.CommentItemAdapter;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 
 public class MeetingDetailActivity extends ToolbarActivity implements View.OnClickListener {
+    private static final DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
 
     private MeetingDetailPresenter presenter;
 
@@ -41,6 +45,7 @@ public class MeetingDetailActivity extends ToolbarActivity implements View.OnCli
         setupActionBar();
 
         tvCountTimer = (TextView) findViewById(R.id.tv_count_timer);
+        refreshCountTimer(60000);
 
         rvMeetingComment = (RecyclerView) findViewById(R.id.rv_meeting_comment);
         linearLayoutManager = new LinearLayoutManager(this);
@@ -50,8 +55,8 @@ public class MeetingDetailActivity extends ToolbarActivity implements View.OnCli
         commentItemAdapter = new CommentItemAdapter(this, comments);
         rvMeetingComment.setAdapter(commentItemAdapter);
 
-
         etMeetingComment = (EditText) findViewById(R.id.et_meeting_comment);
+
         ivMeetingCommentAdd = (ImageView) findViewById(R.id.iv_meeting_comment_add);
         ivMeetingCommentAdd.setOnClickListener(this);
     }
@@ -67,8 +72,8 @@ public class MeetingDetailActivity extends ToolbarActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.iv_meeting_comment_add :
+        switch (v.getId()) {
+            case R.id.iv_meeting_comment_add:
                 presenter.saveComment(etMeetingComment.getText().toString());
                 break;
         }
@@ -95,6 +100,21 @@ public class MeetingDetailActivity extends ToolbarActivity implements View.OnCli
         comments.add(comment3);
 
         return comments;
+    }
+
+    public void refreshCountTimer(long millisInFuture) {
+        new CountDownTimer(millisInFuture, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                Date date = new Date(millisUntilFinished);
+                tvCountTimer.setText(dateFormat.format(date));
+            }
+
+            @Override
+            public void onFinish() {
+                tvCountTimer.setText("finish");
+            }
+        }.start();
     }
 
     public void refreshComment(Comment comment) {

@@ -49,6 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="지도 보기"
+                android:textColor="@color/white"
                 android:textSize="15dp" />
         </LinearLayout>
 
@@ -56,8 +57,10 @@
             android:id="@+id/ll_meeting_member"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/ll_meeting_map"
             android:layout_toRightOf="@+id/ll_meeting_map"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="30dp">
 
             <ImageView
                 android:id="@+id/iv_meeting_member"
@@ -69,6 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="멤버 보기"
+                android:textColor="@color/white"
                 android:textSize="15dp" />
         </LinearLayout>
     </RelativeLayout>

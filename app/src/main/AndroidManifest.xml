@@ -67,8 +67,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.meeting.detail.MeetingDetailActivity">
-        </activity>
+        <activity
+            android:name=".ui.meeting.detail.MeetingDetailActivity"
+            android:windowSoftInputMode="adjustPan"></activity>
         <activity
             android:name=".ui.test.TestActivity"
             android:label="@string/title_activity_test"
