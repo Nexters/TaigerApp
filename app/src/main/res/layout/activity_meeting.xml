@@ -11,7 +11,7 @@
         layout="@layout/tool_bar"></include>
 
     <include
-        android:id="@+id/meeting_content"
+        android:id="@+id/dl_meeting_content"
         layout="@layout/user_nav_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

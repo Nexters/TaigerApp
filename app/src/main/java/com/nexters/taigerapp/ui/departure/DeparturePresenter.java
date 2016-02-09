@@ -15,6 +15,6 @@ public class DeparturePresenter {
 
     public void saveUser(){
         departureInteractor.saveUser();
-        departureActivity.sendMeetingMain();
+        departureActivity.showMeeting();
     }
 }

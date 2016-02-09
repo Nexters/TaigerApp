@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextClock;
 import android.widget.TextView;
 
 import com.nexters.taigerapp.R;
@@ -23,14 +22,17 @@ import lombok.Data;
 import lombok.Setter;
 
 public class MeetingItemAdapter extends RecyclerView.Adapter<MeetingItemAdapter.ViewHolder> {
+    private final static DateFormat dateFormat = new SimpleDateFormat("hh:mm a");
+
     @Setter
     private List<Meeting> meetings;
     private Context context;
     private MeetingPresenter presenter;
 
-    public MeetingItemAdapter(Context context, List<Meeting> meetings) {
+    public MeetingItemAdapter(Context context, List<Meeting> meetings, MeetingPresenter presenter) {
         this.context = context;
         this.meetings = meetings;
+        this.presenter = presenter;
     }
 
     @Override
@@ -45,7 +47,12 @@ public class MeetingItemAdapter extends RecyclerView.Adapter<MeetingItemAdapter.
         final Meeting meeting = meetings.get(position);
         holder.setMeeting(meeting);
 
-
+        holder.getItemView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.showMeetingDetail(meeting.getId());
+            }
+        });
     }
 
     @Override
@@ -57,8 +64,7 @@ public class MeetingItemAdapter extends RecyclerView.Adapter<MeetingItemAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder {
         private View itemView;
 
-        private DateFormat dateFormat;
-        private TextClock tcMeetingClock;
+        private TextView tvMeetingClock;
         private ImageView ivMeetingProfile1, ivMeetingProfile2, ivMeetingProfile3;
         private TextView tvMeetingTitle;
         private ImageView ivMeetingBackground;
@@ -67,16 +73,15 @@ public class MeetingItemAdapter extends RecyclerView.Adapter<MeetingItemAdapter.
             super(itemView);
 
             this.itemView = itemView;
-            tcMeetingClock = (TextClock) itemView.findViewById(R.id.tc_meeting_clock);
-            dateFormat = new SimpleDateFormat(String.valueOf(tcMeetingClock.getFormat12Hour()));
+            tvMeetingClock = (TextView) itemView.findViewById(R.id.tc_meeting_clock);
             ivMeetingProfile1 = (ImageView) itemView.findViewById(R.id.iv_meeting_profile_1);
             ivMeetingProfile2 = (ImageView) itemView.findViewById(R.id.iv_meeting_profile_2);
             ivMeetingProfile3 = (ImageView) itemView.findViewById(R.id.iv_meeting_profile_3);
-            ivMeetingBackground = (ImageView) itemView.findViewById(R.id.iv_meeting_background);
+            ivMeetingBackground = (ImageView) itemView.findViewById(R.id.iv_meeting_bg);
         }
 
         public void setMeeting(Meeting meeting) {
-            tcMeetingClock.setText(dateFormat.format(meeting.getDepartureDate()));
+            tvMeetingClock.setText(dateFormat.format(meeting.getDepartureDate()));
 
             Picasso.with(itemView.getContext()).load(R.drawable.kakao_default_profile_image)
                     .transform(new CropCircleTransformation())
@@ -88,8 +93,8 @@ public class MeetingItemAdapter extends RecyclerView.Adapter<MeetingItemAdapter.
                     .transform(new CropCircleTransformation())
                     .into(ivMeetingProfile3);
 
-            Picasso.with(itemView.getContext()).load(R.drawable.kakao_default_profile_image)
-                    .transform(new BlurTransformation(itemView.getContext(), 25, 2))
+            Picasso.with(itemView.getContext()).load(R.drawable.bg_image_01)
+                    .transform(new BlurTransformation(itemView.getContext(), 25))
                     .into(ivMeetingBackground);
         }
     }

@@ -9,5 +9,7 @@ public class MeetingPresenter {
         this.meetingInteractor = new MeetingInteractor();
     }
 
-
+    public void showMeetingDetail(long id) {
+        meetingActivity.showMeetingDetail(id);
+    }
 }

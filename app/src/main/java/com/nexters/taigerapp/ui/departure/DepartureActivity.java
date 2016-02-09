@@ -27,7 +27,7 @@ public class DepartureActivity extends ToolbarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState,
                 R.layout.activity_departure,
-                getResources().getString(R.string.title_activity_departure));
+                getString(R.string.title_activity_departure));
         presenter = new DeparturePresenter(this);
 
         rvDepartureContent = (RecyclerView) findViewById(R.id.rv_departure_content);
@@ -59,7 +59,7 @@ public class DepartureActivity extends ToolbarActivity {
         return departures;
     }
 
-    public void sendMeetingMain() {
+    public void showMeeting() {
         Intent intent = new Intent(this, MeetingActivity.class);
         startActivity(intent);
     }

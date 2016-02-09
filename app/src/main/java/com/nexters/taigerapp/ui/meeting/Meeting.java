@@ -10,6 +10,7 @@ import lombok.Data;
 
 @Data
 public class Meeting {
+    private long id;
     private String title;
     private Date departureDate;
     private LatLng departureLatLng;

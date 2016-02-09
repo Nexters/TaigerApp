@@ -71,15 +71,15 @@ public class DestinationActivity extends BaseActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_dest_search:
-                sendPlacePicker();
+                showPlacePicker();
                 break;
             case R.id.btn_dest_next:
-                sendDeparture();
+                showDeparture();
                 break;
         }
     }
 
-    private void sendDeparture() {
+    private void showDeparture() {
         Intent intent = new Intent(this, DepartureActivity.class);
         startActivity(intent);
     }
@@ -102,7 +102,7 @@ public class DestinationActivity extends BaseActivity implements View.OnClickLis
         }
     }
 
-    private void sendPlacePicker() {
+    private void showPlacePicker() {
         // BEGIN_INCLUDE(intent)
             /* Use the PlacePicker Builder to construct an Intent.
             Note: This sample demonstrates a basic use case.
