@@ -5,8 +5,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.nexters.taigerapp.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -41,14 +44,35 @@ public class CommentItemAdapter extends RecyclerView.Adapter<CommentItemAdapter.
         return comments.size();
     }
 
+    public void add(Comment comment) {
+        comments.add(comment);
+        // TODO?
+    }
+
     @Data
     public class ViewHolder extends RecyclerView.ViewHolder {
+        private View itemView;
+
+        private ImageView ivUserProfile;
+        private TextView tvUserName;
+        private TextView tvUserComment;
+
         public ViewHolder(View itemView) {
             super(itemView);
+
+            this.itemView = itemView;
+            ivUserProfile = (ImageView) itemView.findViewById(R.id.iv_user_profile);
+            tvUserName = (TextView) itemView.findViewById(R.id.tv_user_name);
+            tvUserComment = (TextView) itemView.findViewById(R.id.tv_user_comment);
         }
 
         public void setComment(Comment comment) {
+            if (comment.getProfileImagePath() != null) {
+                Picasso.with(itemView.getContext()).load(comment.getProfileImagePath()).into(ivUserProfile);
+            }
 
+            tvUserName.setText(comment.getName());
+            tvUserComment.setText(comment.getContent());
         }
     }
 }

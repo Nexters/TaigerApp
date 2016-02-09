@@ -20,22 +20,70 @@
             android:layout_height="match_parent"
             android:src="@drawable/bg_image_01" />
 
+        <TextView
+            android:id="@+id/tv_count_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:paddingBottom="20dp"
+            android:text="test"
+            android:textSize="25dp" />
+
+        <LinearLayout
+            android:id="@+id/ll_meeting_map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:orientation="vertical"
+            android:padding="30dp">
+
+            <ImageView
+                android:id="@+id/iv_meeting_map"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/icon_link_02" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="지도 보기"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_meeting_member"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/ll_meeting_map"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_meeting_member"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/icon_link_04" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="멤버 보기"
+                android:textSize="15dp" />
+        </LinearLayout>
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/ll_meeting_detail_chat"
+        android:id="@+id/rv_meeting_comment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
-
-
-    </android.support.v7.widget.RecyclerView>
+        android:layout_weight="1" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/et_meeting_comment"
@@ -44,6 +92,7 @@
             android:layout_weight="1" />
 
         <ImageView
+            android:id="@+id/iv_meeting_comment_add"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/icon_link_05" />

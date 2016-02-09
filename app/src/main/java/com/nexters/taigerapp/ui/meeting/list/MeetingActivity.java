@@ -10,19 +10,24 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.google.common.collect.Lists;
 import com.nexters.taigerapp.R;
 import com.nexters.taigerapp.common.ToolbarActivity;
 import com.nexters.taigerapp.ui.meeting.create.MeetingMakeMapActivity;
 import com.nexters.taigerapp.ui.meeting.detail.MeetingDetailActivity;
 import com.nexters.taigerapp.ui.setting.SettingActivity;
-import com.nexters.taigerapp.ui.user.UserItemAdapter;
+import com.nexters.taigerapp.ui.user.UserHistory;
+import com.nexters.taigerapp.ui.user.UserHistoryItemAdapter;
 import com.squareup.picasso.Picasso;
+
+import java.util.List;
 
 public class MeetingActivity extends ToolbarActivity implements View.OnClickListener {
 
@@ -36,7 +41,10 @@ public class MeetingActivity extends ToolbarActivity implements View.OnClickList
     private ImageView ivUserSetting;
 
     private RecyclerView rvUserHistory;
-    private UserItemAdapter userItemAdapter;
+    private LinearLayoutManager linearLayoutManager;
+    private UserHistoryItemAdapter userItemAdapter;
+
+    private List<UserHistory> userHistories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +59,19 @@ public class MeetingActivity extends ToolbarActivity implements View.OnClickList
         navToggle = new ActionBarDrawerToggle(this, dlMeetingContent, toolbar, R.string.drawer_open, R.string.drawer_close);
         dlMeetingContent.setDrawerListener(navToggle);
 
+        // profile
         ivUserProfile = (ImageView) findViewById(R.id.iv_user_profile);
 
+        // userhistories
+        rvUserHistory = (RecyclerView) findViewById(R.id.rv_user_history);
+        linearLayoutManager = new LinearLayoutManager(this);
+        rvUserHistory.setLayoutManager(linearLayoutManager);
+
+        userHistories = getUserHistories();
+        userItemAdapter = new UserHistoryItemAdapter(this, userHistories);
+        rvUserHistory.setAdapter(userItemAdapter);
+
+        // settings
         ivUserSetting = (ImageView) findViewById(R.id.iv_user_setting);
         ivUserSetting.setOnClickListener(this);
 
@@ -125,5 +144,18 @@ public class MeetingActivity extends ToolbarActivity implements View.OnClickList
     public void showMeetingMakeMap() {
         Intent intent = new Intent(this, MeetingMakeMapActivity.class);
         startActivity(intent);
+    }
+
+    public List<UserHistory> getUserHistories() {
+        List<UserHistory> userHistories = Lists.newArrayList();
+
+        UserHistory userHistory1 = new UserHistory("test1", 3);
+        userHistories.add(userHistory1);
+        UserHistory userHistory2 = new UserHistory("test2", 2);
+        userHistories.add(userHistory2);
+        UserHistory userHistory3 = new UserHistory("test3", 5);
+        userHistories.add(userHistory3);
+
+        return userHistories;
     }
 }
