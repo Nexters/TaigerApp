@@ -29,7 +29,7 @@ import com.nexters.taigerapp.ui.departure.DepartureActivity;
 
 public class DestinationActivity extends BaseActivity implements View.OnClickListener, OnMapReadyCallback {
     private static final int REQUEST_PLACE_PICKER = 1;
-    private static final double DEFAULT_RADIUS = 100;
+    private static final double DEFAULT_RADIUS = 500;
 
     private DestinationPresenter presenter;
 
@@ -136,7 +136,7 @@ public class DestinationActivity extends BaseActivity implements View.OnClickLis
         CircleOptions circleOptions = new CircleOptions()
                 .center(latLng)
                 .radius(DEFAULT_RADIUS)
-                .fillColor(ContextCompat.getColor(this, R.color.red))
+                .fillColor(ContextCompat.getColor(this, R.color.transparent_red))
                 .strokeWidth(0);
         googleMap.addCircle(circleOptions);
     }
