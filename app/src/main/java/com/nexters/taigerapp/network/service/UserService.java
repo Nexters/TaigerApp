@@ -3,7 +3,7 @@ package com.nexters.taigerapp.network.service;
 import com.nexters.taigerapp.network.ServerConstant;
 import com.nexters.taigerapp.network.service.condition.UserCondition;
 import com.nexters.taigerapp.network.response.model.AuthResult;
-import com.nexters.taigerapp.network.response.model.User;
+import com.nexters.taigerapp.ui.user.User;
 
 import retrofit2.GsonConverterFactory;
 import retrofit2.Retrofit;

@@ -1,7 +1,7 @@
 package com.nexters.taigerapp.ui.meeting;
 
 import com.google.android.gms.maps.model.LatLng;
-import com.nexters.taigerapp.network.response.model.User;
+import com.nexters.taigerapp.ui.user.User;
 
 import java.util.Date;
 import java.util.List;

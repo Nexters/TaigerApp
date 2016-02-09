@@ -10,14 +10,19 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.nexters.taigerapp.R;
 import com.nexters.taigerapp.common.ToolbarActivity;
 import com.nexters.taigerapp.ui.meeting.create.MeetingMakeMapActivity;
 import com.nexters.taigerapp.ui.meeting.detail.MeetingDetailActivity;
+import com.nexters.taigerapp.ui.setting.SettingActivity;
+import com.nexters.taigerapp.ui.user.UserItemAdapter;
+import com.squareup.picasso.Picasso;
 
 public class MeetingActivity extends ToolbarActivity implements View.OnClickListener {
 
@@ -25,6 +30,13 @@ public class MeetingActivity extends ToolbarActivity implements View.OnClickList
 
     private DrawerLayout dlMeetingContent;
     private ActionBarDrawerToggle navToggle;
+
+    // user
+    private ImageView ivUserProfile;
+    private ImageView ivUserSetting;
+
+    private RecyclerView rvUserHistory;
+    private UserItemAdapter userItemAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +51,25 @@ public class MeetingActivity extends ToolbarActivity implements View.OnClickList
         navToggle = new ActionBarDrawerToggle(this, dlMeetingContent, toolbar, R.string.drawer_open, R.string.drawer_close);
         dlMeetingContent.setDrawerListener(navToggle);
 
+        ivUserProfile = (ImageView) findViewById(R.id.iv_user_profile);
 
+        ivUserSetting = (ImageView) findViewById(R.id.iv_user_setting);
+        ivUserSetting.setOnClickListener(this);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_meeting_create);
         fab.setOnClickListener(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        presenter.refreshUserProfile();
+    }
+
+    public void refreshUserProfile(String userProfilePath) {
+        if (userProfilePath != null) {
+            Picasso.with(this).load(userProfilePath).into(ivUserProfile);
+        }
     }
 
     private void setupActionBar() {
@@ -63,10 +90,13 @@ public class MeetingActivity extends ToolbarActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.fab_meeting_create :
+        switch (v.getId()) {
+            case R.id.fab_meeting_create:
                 Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                break;
+            case R.id.iv_user_setting:
+                showSetting();
                 break;
         }
     }
@@ -81,13 +111,18 @@ public class MeetingActivity extends ToolbarActivity implements View.OnClickList
         return super.onOptionsItemSelected(item);
     }
 
+    private void showSetting() {
+        Intent intent = new Intent(this, SettingActivity.class);
+        startActivity(intent);
+    }
+
     public void showMeetingDetail(long id) {
         Intent intent = new Intent(this, MeetingDetailActivity.class);
         intent.putExtra("id", id);
         startActivity(intent);
     }
 
-    public void showMeetingMakeMap(){
+    public void showMeetingMakeMap() {
         Intent intent = new Intent(this, MeetingMakeMapActivity.class);
         startActivity(intent);
     }

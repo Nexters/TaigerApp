@@ -6,12 +6,12 @@ public class LoginPresenter implements OnLoginListener {
 
     public LoginPresenter(LoginActivity loginActivity){
         this.loginActivity = loginActivity;
-        this.loginInteractor = new LoginInteractor(this);
+        this.loginInteractor = new LoginInteractor(this, loginActivity.getApplicationContext());
     }
 
-    public void onCreate() {
-        loginInteractor.create();
-        loginActivity.create();
+    public void login() {
+        loginInteractor.setup();
+        loginActivity.showLogin();
     }
 
     public void onDestroy() {

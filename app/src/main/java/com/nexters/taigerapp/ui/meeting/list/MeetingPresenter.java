@@ -12,4 +12,9 @@ public class MeetingPresenter {
     public void showMeetingDetail(long id) {
         meetingActivity.showMeetingDetail(id);
     }
+
+    public void refreshUserProfile() {
+        String userProfilePath = meetingInteractor.getUserProfilePath();
+        meetingActivity.refreshUserProfile(userProfilePath);
+    }
 }

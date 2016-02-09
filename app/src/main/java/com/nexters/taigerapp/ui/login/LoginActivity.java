@@ -16,12 +16,11 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         presenter = new LoginPresenter(this);
-        presenter.onCreate();
+        presenter.login();
     }
 
-    public void create() {
+    public void showLogin() {
         setContentView(R.layout.activity_login);
     }
 

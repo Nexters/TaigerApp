@@ -1,4 +1,4 @@
-package com.nexters.taigerapp.network.response.model;
+package com.nexters.taigerapp.ui.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
