@@ -43,6 +43,7 @@ public class MeetingDetailActivity extends ToolbarActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState, R.layout.activity_meeting_detail, getString(R.string.title_activity_meeting_detail));
         setupActionBar();
+        presenter = new MeetingDetailPresenter(this);
 
         tvCountTimer = (TextView) findViewById(R.id.tv_count_timer);
         refreshCountTimer(60000);
@@ -119,5 +120,6 @@ public class MeetingDetailActivity extends ToolbarActivity implements View.OnCli
 
     public void refreshComment(Comment comment) {
         commentItemAdapter.add(comment);
+        etMeetingComment.setText("");
     }
 }

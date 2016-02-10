@@ -8,9 +8,8 @@ public class MeetingDetailPresenter {
 
     public MeetingDetailPresenter(MeetingDetailActivity meetingDetailActivity) {
         this.meetingDetailActivity = meetingDetailActivity;
-        this.meetingDetailInteractor = new MeetingDetailInteractor();
+        this.meetingDetailInteractor = new MeetingDetailInteractor(meetingDetailActivity.getApplicationContext());
     }
-
 
     public void saveComment(String commentStr) {
         Comment comment = meetingDetailInteractor.saveComment(commentStr);
