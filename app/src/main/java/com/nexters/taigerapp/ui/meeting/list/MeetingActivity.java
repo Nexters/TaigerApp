@@ -6,7 +6,6 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -16,8 +15,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.common.collect.Lists;
+import com.kakao.usermgmt.response.model.UserProfile;
 import com.nexters.taigerapp.R;
 import com.nexters.taigerapp.common.ToolbarActivity;
 import com.nexters.taigerapp.ui.meeting.create.MeetingMakeMapActivity;
@@ -38,6 +39,7 @@ public class MeetingActivity extends ToolbarActivity implements View.OnClickList
 
     // user
     private ImageView ivUserProfile;
+    private TextView tvUserNickName;
     private ImageView ivUserSetting;
 
     private RecyclerView rvUserHistory;
@@ -61,6 +63,7 @@ public class MeetingActivity extends ToolbarActivity implements View.OnClickList
 
         // profile
         ivUserProfile = (ImageView) findViewById(R.id.iv_user_profile);
+        tvUserNickName = (TextView) findViewById(R.id.tv_user_nickname);
 
         // userhistories
         rvUserHistory = (RecyclerView) findViewById(R.id.rv_user_history);
@@ -85,10 +88,15 @@ public class MeetingActivity extends ToolbarActivity implements View.OnClickList
         presenter.refreshUserProfile();
     }
 
-    public void refreshUserProfile(String userProfilePath) {
-        if (userProfilePath != null) {
-            Picasso.with(this).load(userProfilePath).into(ivUserProfile);
+    public void refreshUserProfile(UserProfile userProfile) {
+        if (userProfile.getProfileImagePath() != null) {
+            Picasso.with(this).load(userProfile.getProfileImagePath()).into(ivUserProfile);
         }
+        tvUserNickName.setText(userProfile.getNickname());
+    }
+
+    public void refreshUserHistories(List<UserHistory> userHistories){
+        
     }
 
     private void setupActionBar() {
@@ -111,8 +119,7 @@ public class MeetingActivity extends ToolbarActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.fab_meeting_create:
-                Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                showMeetingMakeMap();
                 break;
             case R.id.iv_user_setting:
                 showSetting();

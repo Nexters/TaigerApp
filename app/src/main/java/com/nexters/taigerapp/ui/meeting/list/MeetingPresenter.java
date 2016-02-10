@@ -1,12 +1,14 @@
 package com.nexters.taigerapp.ui.meeting.list;
 
+import com.kakao.usermgmt.response.model.UserProfile;
+
 public class MeetingPresenter {
     private MeetingActivity meetingActivity;
     private MeetingInteractor meetingInteractor;
 
     public MeetingPresenter(MeetingActivity meetingActivity) {
         this.meetingActivity = meetingActivity;
-        this.meetingInteractor = new MeetingInteractor();
+        this.meetingInteractor = new MeetingInteractor(meetingActivity.getApplicationContext());
     }
 
     public void showMeetingDetail(long id) {
@@ -14,7 +16,7 @@ public class MeetingPresenter {
     }
 
     public void refreshUserProfile() {
-        String userProfilePath = meetingInteractor.getUserProfilePath();
-        meetingActivity.refreshUserProfile(userProfilePath);
+       UserProfile userProfile = meetingInteractor.getUserProfile();
+        meetingActivity.refreshUserProfile(userProfile);
     }
 }

@@ -45,8 +45,9 @@ public class CommentItemAdapter extends RecyclerView.Adapter<CommentItemAdapter.
     }
 
     public void add(Comment comment) {
+        int position = comments.size();
         comments.add(comment);
-        // TODO?
+        notifyItemChanged(position);
     }
 
     @Data

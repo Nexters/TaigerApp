@@ -43,6 +43,12 @@ public class UserHistoryItemAdapter extends RecyclerView.Adapter<UserHistoryItem
         return userHistories.size();
     }
 
+
+    public void refreshUserHistories(List<UserHistory> userHistories){
+        this.userHistories = userHistories;
+        notifyDataSetChanged();
+    }
+
     @Data
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tvHistoryTitle;

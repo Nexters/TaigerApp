@@ -41,6 +41,7 @@
             android:background="#878787" />
 
         <TextView
+            android:id="@+id/tv_user_nickname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="kakao_user_id" />
