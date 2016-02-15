@@ -1,6 +1,6 @@
 package com.nexters.taigerapp.ui.meeting;
 
-import com.google.android.gms.maps.model.LatLng;
+import com.google.common.collect.Lists;
 import com.nexters.taigerapp.ui.user.User;
 
 import java.util.Date;
@@ -12,16 +12,14 @@ import lombok.Data;
 public class Meeting {
     private long id;
     private String title;
-    private Date departureDate;
-    private LatLng departureLatLng;
-    private Date destinationDate;
-    private LatLng destinationLatLng;
-    private List<User> users;
+    private MeetingLocation departure = new MeetingLocation();
+    private MeetingLocation destination = new MeetingLocation();
+    private List<User> users = Lists.newArrayList();
     private int backgroundDrawableId;
     private Date createdAt;
 
-    public Meeting(String title, Date departureDate){
+    public Meeting(String title, MeetingLocation departure){
         this.title = title;
-        this.departureDate = departureDate;
+        this.departure = departure;
     }
 }

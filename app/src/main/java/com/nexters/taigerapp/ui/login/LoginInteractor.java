@@ -33,7 +33,7 @@ public class LoginInteractor {
                 saveUserManage();
                 listener.redirectDepartureActivity();
             } else {
-                throw new LoginException(LoginException.CONNECT_ERROR);
+                throw new LoginException("CONNECT_ERROR");
             }
         }
     }

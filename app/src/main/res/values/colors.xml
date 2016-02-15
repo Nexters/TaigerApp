@@ -22,4 +22,6 @@
     <color name="red">#FF4081</color>
     <color name="transparent_red">#30FF4081</color>
     <color name="white">#E5E5E5</color>
+    <color name="taiger_color1">#f50057</color>
+    <color name="taiger_color2">#ffffff</color>
 </resources>

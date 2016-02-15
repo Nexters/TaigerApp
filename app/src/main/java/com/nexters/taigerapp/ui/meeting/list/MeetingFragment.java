@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import com.google.common.collect.Lists;
 import com.nexters.taigerapp.R;
 import com.nexters.taigerapp.ui.meeting.Meeting;
+import com.nexters.taigerapp.ui.meeting.MeetingLocation;
 
-import java.util.Date;
 import java.util.List;
 
 public class MeetingFragment extends Fragment {
@@ -57,7 +57,8 @@ public class MeetingFragment extends Fragment {
         List<Meeting> meetings = Lists.newArrayList();
 
         for (int i = 0; i < 13; i++) {
-            Meeting meeting = new Meeting("test", new Date());
+            MeetingLocation location = new MeetingLocation();
+            Meeting meeting = new Meeting("test", location);
             meetings.add(meeting);
         }
         return meetings;

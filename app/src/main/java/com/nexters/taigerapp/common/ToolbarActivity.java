@@ -18,7 +18,7 @@ public class ToolbarActivity extends BaseActivity {
     /**
      * Set up the {@link android.app.ActionBar}, if the API is available.
      */
-    private void setupActionBar(String title) {
+    protected void setupActionBar(String title) {
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
 

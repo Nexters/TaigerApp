@@ -16,6 +16,7 @@ import com.nexters.taigerapp.R;
 import com.nexters.taigerapp.common.ToolbarActivity;
 import com.nexters.taigerapp.ui.comment.Comment;
 import com.nexters.taigerapp.ui.comment.CommentItemAdapter;
+import com.nexters.taigerapp.ui.meeting.Meeting;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -25,6 +26,8 @@ import java.util.List;
 
 public class MeetingDetailActivity extends ToolbarActivity implements View.OnClickListener {
     private static final DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
+
+    private Meeting meeting;
 
     private MeetingDetailPresenter presenter;
 
@@ -69,6 +72,12 @@ public class MeetingDetailActivity extends ToolbarActivity implements View.OnCli
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_pre32);
+    }
+
+    private void refreshView(Meeting meeting){
+        setupActionBar(meeting.getDeparture().getName() + " > " + meeting.getDestination().getName());
+
+
     }
 
     @Override

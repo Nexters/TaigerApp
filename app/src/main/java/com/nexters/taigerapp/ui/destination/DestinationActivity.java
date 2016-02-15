@@ -23,6 +23,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.nexters.taigerapp.R;
 import com.nexters.taigerapp.common.BaseActivity;
 import com.nexters.taigerapp.ui.departure.DepartureActivity;
@@ -126,6 +127,8 @@ public class DestinationActivity extends BaseActivity implements View.OnClickLis
     public void focusDestMap(Place place) {
         LatLng latLng = place.getLatLng();
 
+        googleMap.clear();
+
         CameraPosition position = new CameraPosition.Builder().target(latLng)
                 .zoom(15.5f)
                 .tilt(10)
@@ -139,6 +142,11 @@ public class DestinationActivity extends BaseActivity implements View.OnClickLis
                 .fillColor(ContextCompat.getColor(this, R.color.transparent_red))
                 .strokeWidth(0);
         googleMap.addCircle(circleOptions);
+
+        MarkerOptions markerOptions = new MarkerOptions()
+                .position(latLng)
+                .draggable(false);
+        googleMap.addMarker(markerOptions);
     }
 
     public void refreshDestName(String name) {
