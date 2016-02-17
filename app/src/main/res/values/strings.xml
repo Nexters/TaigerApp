@@ -151,4 +151,8 @@
     <string name="drawer_close">Close navigation drawer</string>
     <string name="title_setting">설정</string>
     <string name="title_activity_meeting_detail"> </string>
+    <string name="title_user_profile">프로필조회</string>
+    <string name="action_filter_all">전체보기</string>
+    <string name="action_filter_depart">도착지역</string>
+    <string name="action_filter_sex">성별</string>
 </resources>

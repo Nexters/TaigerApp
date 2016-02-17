@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.nexters.taigerapp.R;
 import com.nexters.taigerapp.ui.meeting.Meeting;
+import com.nexters.taigerapp.ui.meeting.MeetingLocation;
 import com.squareup.picasso.Picasso;
 
 import java.text.DateFormat;
@@ -81,7 +82,9 @@ public class MeetingItemAdapter extends RecyclerView.Adapter<MeetingItemAdapter.
         }
 
         public void setMeeting(Meeting meeting) {
-            tvMeetingClock.setText(dateFormat.format(meeting.getDepartureDate()));
+            MeetingLocation meetingLocation = meeting.getDeparture();
+
+            tvMeetingClock.setText(dateFormat.format(meetingLocation.getDate()));
 
             Picasso.with(itemView.getContext()).load(R.drawable.kakao_default_profile_image)
                     .transform(new CropCircleTransformation())

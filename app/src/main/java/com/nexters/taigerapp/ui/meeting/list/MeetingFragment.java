@@ -13,6 +13,7 @@ import com.nexters.taigerapp.R;
 import com.nexters.taigerapp.ui.meeting.Meeting;
 import com.nexters.taigerapp.ui.meeting.MeetingLocation;
 
+import java.util.Date;
 import java.util.List;
 
 public class MeetingFragment extends Fragment {
@@ -58,6 +59,8 @@ public class MeetingFragment extends Fragment {
 
         for (int i = 0; i < 13; i++) {
             MeetingLocation location = new MeetingLocation();
+            location.setDate(new Date());
+            location.setName("test");
             Meeting meeting = new Meeting("test", location);
             meetings.add(meeting);
         }

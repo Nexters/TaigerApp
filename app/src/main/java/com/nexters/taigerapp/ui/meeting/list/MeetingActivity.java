@@ -12,6 +12,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -95,8 +96,8 @@ public class MeetingActivity extends ToolbarActivity implements View.OnClickList
         tvUserNickName.setText(userProfile.getNickname());
     }
 
-    public void refreshUserHistories(List<UserHistory> userHistories){
-        
+    public void refreshUserHistories(List<UserHistory> userHistories) {
+
     }
 
     private void setupActionBar() {
@@ -106,6 +107,13 @@ public class MeetingActivity extends ToolbarActivity implements View.OnClickList
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu32);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_meeting, menu);
+        return true;
     }
 
     private void setFragment(Fragment fragment) {
@@ -133,6 +141,18 @@ public class MeetingActivity extends ToolbarActivity implements View.OnClickList
         // ActionBarDrawerToggle will take care of this.
         if (navToggle.onOptionsItemSelected(item)) {
             return true;
+        }
+
+        switch (item.getItemId()) {
+            case R.id.action_filter_all:
+
+                break;
+            case R.id.action_filter_depart:
+
+                break;
+            case R.id.action_filter_sex:
+
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
