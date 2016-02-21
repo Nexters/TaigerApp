@@ -39,6 +39,12 @@ public class DepartureActivity extends ToolbarActivity {
         rvDepartureContent.setAdapter(departureItemAdapter);
     }
 
+    @Override
+    protected void setupActionBar(String title) {
+        super.setupActionBar(title);
+
+    }
+
     @NonNull
     private List<Departure> getDepartures() {
         List<Departure> departures = Lists.newArrayList();

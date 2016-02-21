@@ -8,7 +8,7 @@
 
     <include
         android:id="@+id/tool_bar"
-        layout="@layout/tool_bar"></include>
+        layout="@layout/tool_bar_1"></include>
 
     <RelativeLayout
         android:id="@+id/rl_meeting_detail_content"
@@ -120,9 +120,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="6dp"
+                android:textColor="@color/taiger_color1"
                 android:gravity="center"
                 android:text="출발"
-                android:textColor="@color/taiger_color1"
                 android:textSize="8sp" />
 
             <TextView

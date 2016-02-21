@@ -11,7 +11,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -52,7 +51,6 @@ public class MeetingActivity extends ToolbarActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState, R.layout.activity_meeting, getString(R.string.title_activity_meeting));
-        setupActionBar();
         presenter = new MeetingPresenter(this);
         setFragment(MeetingFragment.newInstance(presenter));
 
@@ -100,15 +98,15 @@ public class MeetingActivity extends ToolbarActivity implements View.OnClickList
 
     }
 
-    private void setupActionBar() {
-        toolbar = (Toolbar) findViewById(R.id.tool_bar);
-        setSupportActionBar(toolbar);
-
+    @Override
+    protected void setupActionBar(String title) {
+        super.setupActionBar(title);
+//        toolbar = (Toolbar) findViewById(R.id.tool_bar);
+//        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu32);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

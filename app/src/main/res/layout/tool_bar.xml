@@ -6,4 +6,27 @@
     android:elevation="4dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
+    <RelativeLayout
+        android:id="@+id/rl_action_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_action_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/kakao_login_symbol"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_action_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="test"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
 </android.support.v7.widget.Toolbar>
