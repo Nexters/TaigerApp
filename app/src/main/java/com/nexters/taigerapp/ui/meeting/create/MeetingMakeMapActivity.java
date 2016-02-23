@@ -10,6 +10,6 @@ public class MeetingMakeMapActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_meeting_make_map);
+        setContentView(R.layout.activity_meeting_make_intro);
     }
 }

@@ -6,49 +6,96 @@
     android:orientation="vertical"
     tools:context=".ui.signup.SignupActivity">
 
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar_1"></include>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="22dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="기본 정보를 입력해주세요"
+        android:id="@+id/textView4"
+        android:layout_gravity="center_horizontal"
+        android:textSize="20sp"
+        android:layout_marginTop="50dp"
+        android:textColor="#000"/>
+
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:id="@+id/img_profile"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="28dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="5dp">
+        android:padding="5dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp">
 
         <TextView
             android:id="@+id/tx_name"
-            android:layout_width="wrap_content"
+            android:layout_width="45dp"
             android:layout_height="wrap_content"
-            android:text="name " />
+            android:textSize="@dimen/font_small"
+            android:text="이름" />
 
         <EditText
             android:id="@+id/et_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textSize="@dimen/font_tiny"
+            android:hint="실명을 입력해주세요"
+            />
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="5dp">
+        android:padding="5dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp">
 
         <TextView
             android:id="@+id/tx_age"
-            android:layout_width="wrap_content"
+            android:layout_width="45dp"
             android:layout_height="wrap_content"
-            android:text="age " />
+            android:text="성별" />
 
-        <EditText
-            android:id="@+id/et_age"
+        <CheckBox
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:text="남성"
+            android:id="@+id/cb_male"
+            android:checked="false"
+            android:layout_weight="1"/>
+
+        <CheckBox
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="여성"
+            android:id="@+id/cb_female"
+            android:checked="false"
+            android:layout_weight="1"/>
+
     </LinearLayout>
 
     <Button
         android:id="@+id/btn_sign_up"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="signup" />
-
+        android:textSize="@dimen/font_normal"
+        android:text="입력완료"
+        android:layout_marginTop="70dp"/>
+    </LinearLayout>
 </LinearLayout>
