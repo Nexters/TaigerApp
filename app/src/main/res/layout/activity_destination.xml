@@ -5,7 +5,7 @@
               android:layout_height="match_parent"
               android:orientation="vertical"
               tools:context="com.nexters.taigerapp.ui.destination.DestinationActivity"
-              android:id="@+id/">
+              android:id="@+id/ll_dest">
 
     <ViewSwitcher
         android:id="@+id/vs_dest_switcher"
@@ -18,7 +18,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@color/red" />
+            android:src="@drawable/destination_image" />
 
         <fragment xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/fg_dest_map"

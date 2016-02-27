@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.nexters.taigerapp.ui.meeting.create.MeetingMakeMapActivity">
+    tools:context=".ui.meeting.make.MeetingMakeIntroActivity">
 
     <include
         android:id="@+id/tool_bar"
@@ -32,11 +32,11 @@
             android:layout_marginTop="8dp"/>
 
         <Button
+            android:id="@+id/btn_make_next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:text="건너뛰기"
-            android:id="@+id/button"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="14dp"/>
 

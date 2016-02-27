@@ -75,12 +75,11 @@ public class DepartureItemAdapter extends RecyclerView.Adapter<DepartureItemAdap
         }
 
         public void setDeparture(Departure departure){
-            tvDepartMeetingCount.setText(String.valueOf(departure.getDepartMeetingCount()));
-            tvDepartDestUserCount.setText(String.valueOf(departure.getDepartDestUserCount()));
-            tvDepartName.setText(departure.getDepartName());
-            // TODO change Image
-            Picasso.with(itemView.getContext()).load(R.drawable.bg_image_01)
-                    .transform(new BlurTransformation(itemView.getContext(), 25, 2))
+//            tvDepartMeetingCount.setText(String.valueOf(departure.getDepartMeetingCount()));
+//            tvDepartDestUserCount.setText(String.valueOf(departure.getDepartDestUserCount()));
+//            tvDepartName.setText(departure.getDepartName());
+            Picasso.with(itemView.getContext()).load(departure.getDepartBackground())
+//                    .transform(new BlurTransformation(itemView.getContext(), 25, 2))
                     .into(ivDepartBackground);
         }
     }

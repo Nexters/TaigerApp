@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.common.collect.Lists;
 import com.nexters.taigerapp.R;
@@ -43,23 +46,26 @@ public class DepartureActivity extends ToolbarActivity {
     protected void setupActionBar(String title) {
         super.setupActionBar(title);
 
+        toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        ImageView ivActionTitle = (ImageView) toolbar.findViewById(R.id.iv_action_title);
+        ivActionTitle.setVisibility(View.VISIBLE);
     }
 
     @NonNull
     private List<Departure> getDepartures() {
         List<Departure> departures = Lists.newArrayList();
 
-        Departure departure1 = new Departure("사당", 1, 2, null);
+        Departure departure1 = new Departure("사당", 1, 2, R.drawable.departure_sadang);
         departures.add(departure1);
-        Departure departure2 = new Departure("강남", 2, 3, null);
+        Departure departure2 = new Departure("강남", 2, 3, R.drawable.departure_gangnam);
         departures.add(departure2);
-        Departure departure3 = new Departure("홍대", 3, 4, null);
+        Departure departure3 = new Departure("홍대", 3, 4, R.drawable.departure_hongdae);
         departures.add(departure3);
-        Departure departure4 = new Departure("신촌", 1, 2, null);
+        Departure departure4 = new Departure("신촌", 1, 2, R.drawable.departure_sincheon);
         departures.add(departure4);
-        Departure departure5 = new Departure("건대", 2, 3, null);
+        Departure departure5 = new Departure("서울역", 2, 3, R.drawable.departure_seoulstation);
         departures.add(departure5);
-        Departure departure6 = new Departure("사당역?", 3, 4, null);
+        Departure departure6 = new Departure("건대", 3, 4, R.drawable.departure_kunkok);
         departures.add(departure6);
 
         return departures;

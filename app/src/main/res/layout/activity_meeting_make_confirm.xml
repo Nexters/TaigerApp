@@ -4,7 +4,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                tools:context="com.nexters.taigerapp.ui.meeting.create.MeetingMakeMapActivity"
+                tools:context=".ui.meeting.make.MeetingMakeIntroActivity"
                 android:background="@color/popup_background"
                 android:weightSum="1"
                 android:padding="20dp">
@@ -224,7 +224,6 @@
         android:layout_marginTop="28dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:src="asd"
         android:text="방 만들기"
         android:textColor="#fff"
         android:textStyle="bold"

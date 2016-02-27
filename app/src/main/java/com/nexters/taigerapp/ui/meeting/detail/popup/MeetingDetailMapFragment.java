@@ -59,6 +59,6 @@ public class MeetingDetailMapFragment extends Fragment {
 
     public void refreshMapFragment(MeetingDetailMap meetingDetailMap) {
         tvLocation.setText(meetingDetailMap.getLocation());
-        tvLocationName.setText(meetingDetailMap.getName());
+        tvLocationName.setText(meetingDetailMap.getLocationName());
     }
 }

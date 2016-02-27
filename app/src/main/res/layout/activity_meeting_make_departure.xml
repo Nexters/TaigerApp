@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.nexters.taigerapp.ui.meeting.create.MeetingMakeMapActivity">
+    tools:context=".ui.meeting.make.MeetingMakeIntroActivity">
 
     <include
         android:id="@+id/tool_bar"
@@ -13,23 +13,35 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="vertical"
         android:padding="22dp">
 
 
         <EditText
+            android:id="@+id/editText"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:id="@+id/editText"
-            android:drawableLeft="@drawable/places_ic_search"
             android:layout_gravity="center_horizontal"
-            android:hint="모임장소 검색"/>
+            android:drawableLeft="@drawable/places_ic_search"
+            android:hint="모임장소 검색" />
 
         <ListView
+            android:id="@+id/listView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/listView"
-            android:layout_marginTop="21dp"/>
+            android:layout_marginTop="21dp" />
     </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_make_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="14dp"
+        android:background="@color/white"
+        android:text="건너뛰기" />
+
 </LinearLayout>

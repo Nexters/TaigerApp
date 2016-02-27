@@ -9,5 +9,5 @@ public class Departure {
     private String departName;
     private int departMeetingCount;
     private int departDestUserCount;
-    private String departBackground;
+    private int departBackground;
 }

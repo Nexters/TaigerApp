@@ -21,7 +21,7 @@ import com.google.common.collect.Lists;
 import com.kakao.usermgmt.response.model.UserProfile;
 import com.nexters.taigerapp.R;
 import com.nexters.taigerapp.common.ToolbarActivity;
-import com.nexters.taigerapp.ui.meeting.create.MeetingMakeMapActivity;
+import com.nexters.taigerapp.ui.meeting.make.MeetingMakeIntroActivity;
 import com.nexters.taigerapp.ui.meeting.detail.MeetingDetailActivity;
 import com.nexters.taigerapp.ui.setting.SettingActivity;
 import com.nexters.taigerapp.ui.user.UserHistory;
@@ -167,7 +167,7 @@ public class MeetingActivity extends ToolbarActivity implements View.OnClickList
     }
 
     public void showMeetingMakeMap() {
-        Intent intent = new Intent(this, MeetingMakeMapActivity.class);
+        Intent intent = new Intent(this, MeetingMakeIntroActivity.class);
         startActivity(intent);
     }
 
