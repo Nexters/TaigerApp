@@ -17,8 +17,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.hamcrest.core.IsNull.nullValue;
 
-public class NetworkTest {
-
+public class NetworkServiceTest {
+    // http://www.jsontest.com/
     private NetworkService networkService;
 
     @Before
